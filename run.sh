@@ -1,8 +1,7 @@
 #!/bin/bash
 
-let "gpu=0"
+let "gpu=3"
 XLA_PYTHON_CLIENT_MEM_FRACTION=.1 CUDA_VISIBLE_DEVICES=$gpu python main.py \
-    --config=config.py \
-    --epoch=1000000 \
-    --seed 77
+    --num_epoch=10 \
+    --seed 0
 sleep 2

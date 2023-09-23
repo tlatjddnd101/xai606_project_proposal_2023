@@ -2,8 +2,10 @@ from typing import Callable, Sequence
 from flax import linen as nn
 import jax.numpy as jnp
 
+
 def default_init():
     return nn.initializers.he_normal()
+
 
 class BaselineClassifier(nn.Module):
     hidden_dims: Sequence[int]
@@ -11,9 +13,6 @@ class BaselineClassifier(nn.Module):
 
     @nn.compact
     def __call__(self, x: jnp.ndarray) -> jnp.ndarray:
-        x = nn.Dense(features=self.num_hidden)(x)
-        x = nn.relu(x)
-        x = nn.Dense(features=self.num_outputs)(x)
 
         for i, size in enumerate(self.hidden_dims):
             if i+1 < len(self.hidden_dims):
