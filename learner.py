@@ -23,7 +23,7 @@ def test_step(state, batch):
     return pred_labels
 
 class Learner(object):
-    def __init__(self, 
+    def __init__(self,
                  seed,
                  hidden_dims,
                  input_example,
@@ -33,6 +33,7 @@ class Learner(object):
         rng, init_rng = jax.random.split(rng, 2)
         
         self.model = BaselineClassifier(hidden_dims)
+        
         self.params = self.model.init(init_rng, input_example)
 
         self.optimizer = optax.adam(learning_rate=lr)

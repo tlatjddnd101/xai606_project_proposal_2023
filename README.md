@@ -15,3 +15,6 @@ Set the target GPU to be used and random seed before run.
 ```bash
 ./run.sh
 ```
+
+## Evaluation
+If you want to evaluate your model's prediction, go on [original project webise](https://www.kaggle.com/competitions/playground-series-s3e7) and submit the **prediction.csv** file in the `run_log` directory.
