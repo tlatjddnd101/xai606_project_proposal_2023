@@ -1,7 +1,6 @@
 import datetime
 from absl import app, flags
 
-import jax
 from torch.utils.data import DataLoader
 import numpy as np
 import tqdm
@@ -20,6 +19,7 @@ flags.DEFINE_integer('seed', 0, 'seed')
 
 
 def main(_):
+    np.random.seed(FLAGS.seed)
 
     # make dataset
     train_dataset = LoadDataset('dataset/train.csv', has_label=True)
